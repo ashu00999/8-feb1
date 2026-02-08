@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Propose Day ❤️</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background: linear-gradient(to top right, #ff9a9e, #fad0c4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        font-family: "Segoe UI", sans-serif;
+    }
+
+    .container {
+        text-align: center;
+        color: #fff;
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    h1 {
+        font-size: 50px;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+        animation: glow 2s infinite alternate;
+    }
+
+    p {
+        font-size: 24px;
+        margin: 10px 0 20px;
+        opacity: 0;
+        animation: slideUp 2s forwards 1s;
+    }
+
+    .btn {
+        background: #fff;
+        color: #e91e63;
+        padding: 15px 30px;
+        font-size: 20px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        margin-top: 20px;
+        opacity: 0;
+        animation: fadeIn 2s forwards 2s;
+        box-shadow: 0 4px 15px rgba(255,255,255,0.4);
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        transform: scale(1.1);
+        background: #ffe6eb;
+    }
+
+    /* Floating Hearts */
+    .heart {
+        position: absolute;
+        bottom: -10px;
+        color: #ffdde5;
+        font-size: 25px;
+        animation: floatUp 6s linear infinite;
+        opacity: 0.7;
+    }
+
+    @keyframes floatUp {
+        0% { transform: translateY(0) rotate(0deg); opacity: 0.5; }
+        50% { opacity: 1; }
+        100% { transform: translateY(-800px) rotate(360deg); opacity: 0; }
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+
+    @keyframes slideUp {
+        from {transform: translateY(40px); opacity: 0;}
+        to {transform: translateY(0); opacity: 1;}
+    }
+
+    @keyframes glow {
+        from {text-shadow: 0 0 20px #fff;}
+        to {text-shadow: 0 0 35px #ffe6eb;}
+    }
+</style>
+</head>
+
+<body>
+
+<!-- Floating Hearts -->
+<script>
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => { heart.remove(); }, 6000);
+    }
+    setInterval(createHeart, 300);
+</script>
+
+<div class="container">
+    <h1>Happy Propose Day ❤️</h1>
+    
+    <p>
+        “In your eyes, I found my home…<br>
+        In your heart, I found my forever.” 
+        I Love You till to my last breath ❤️
+    </p>
+
+    <button class="btn" onclick="showMessage()">Click to Reveal My Heart</button>
+
+    <h2 id="proposal" style="margin-top: 25px; opacity: 0; transition: 1.5s;">
+    </h2>
+</div>
+
+<script>
+    function showMessage() {
+        const msg = document.getElementById("proposal");
+        msg.innerHTML = "Will you stay mine, not just for today…<br> but for all the tomorrows my heart beats for you? 💍❤️";
+        msg.style.opacity = 1;
+    }
+</script>
+
+</body>
+</html>
